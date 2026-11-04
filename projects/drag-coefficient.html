@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Video-Tracked Drag Coefficient Analysis · Tarohnish Kotwal</title>
+  <meta name="description" content="Measured drag from high-speed video (Cd = 0.47) and compared four throws against drag and no-drag models; accounting for drag cut the ping pong ball's range-prediction error from 23–27% to 3–7%.">
+  <link rel="canonical" href="https://tarohnish.github.io/projects/drag-coefficient.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Video-Tracked Drag Coefficient Analysis · Tarohnish Kotwal">
+  <meta property="og:description" content="Measured drag from high-speed video (Cd = 0.47) and compared four throws against drag and no-drag models; accounting for drag cut the ping pong ball's range-prediction error from 23–27% to 3–7%.">
+  <meta property="og:url" content="https://tarohnish.github.io/projects/drag-coefficient.html">
+  <meta property="og:image" content="https://tarohnish.github.io/assets/images/drag-coefficient/exp1-ping-pong-trajectory.png">
+  <meta property="og:image:alt" content="Trajectory plot for a ping pong ball throw comparing the measured path with drag and no-drag models.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/print.css" media="print">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="site-name" href="../index.html">Tarohnish Kotwal</a>
+      <nav aria-label="Main">
+        <ul class="site-nav">
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="mailto:kotwal.t@northeastern.edu">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/tarohnishkotwal">LinkedIn</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <p class="back"><a href="../index.html#projects"><span aria-hidden="true">←</span> All projects</a></p>
+
+    <div class="title-block">
+      <div class="tb-cell tb-title">
+        <span class="tb-label" aria-hidden="true">Title</span>
+        <h1>Video-Tracked Drag Coefficient Analysis</h1>
+      </div>
+      <div class="tb-cell tb-sheet">
+        <span class="tb-label">Sheet</span>
+        <span class="tb-value">04 of 08</span>
+      </div>
+      <dl class="tb-fields">
+        <div class="tb-row">
+          <dt>Dates</dt>
+          <dd>Jan 2026 – Feb 2026</dd>
+        </div>
+        <div class="tb-row">
+          <dt>Context</dt>
+          <dd>ME 3456 Lab 1, Projectile Trajectories with Aerodynamic Drag, Northeastern University (team lab)</dd>
+        </div>
+        <div class="tb-row">
+          <dt>Role</dt>
+          <dd>Responsible for the team's MATLAB code and graphing</dd>
+        </div>
+        <div class="tb-row">
+          <dt>Tools</dt>
+          <dd>MATLAB · Tracker video analysis · least-squares curve fitting · finite-difference simulation (the lab's model)</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="project">
+      <p class="summary">Measured drag from high-speed video (Cd = 0.47) and compared four throws against drag and no-drag models; accounting for drag cut the ping pong ball's range-prediction error from 23–27% to 3–7%.</p>
+
+      <section class="keynums" aria-labelledby="keynums-title">
+        <h2 class="keynums__title" id="keynums-title">Key numbers</h2>
+        <dl class="keynums__list">
+          <div><dt>Drag coefficient, vertical drop</dt><dd>Cd = 0.47</dd></div>
+          <div><dt>Video frame rate</dt><dd>240 fps</dd></div>
+          <div><dt>Ping pong range error, no drag → drag model</dt><dd>23–27% → 3–7%</dd></div>
+          <div><dt>Drag values swept</dt><dd>50,000</dd></div>
+        </dl>
+      </section>
+
+      <div class="project__figs">
+        <figure class="fig fig--hero">
+          <a href="../assets/images/drag-coefficient/exp1-ping-pong-trajectory.png">
+            <img src="../assets/images/drag-coefficient/exp1-ping-pong-trajectory.png" width="875" height="656" alt="Trajectory plot for ping pong ball attempt 1: the measured path (red dots) lands at 1.303 m, the drag model (blue) at 1.393 m, and the no-drag model (dashed) at 1.648 m.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 1</span> Ping pong ball, attempt 1. The drag model (blue, Cd = 0.47) lands 6.9% past the measured path (red); the no-drag model (dashed) lands 26.5% past.</figcaption>
+        </figure>
+        <figure class="fig fig--col">
+          <a href="../assets/images/drag-coefficient/matlab-code-and-plots.png">
+            <img src="../assets/images/drag-coefficient/matlab-code-and-plots.png" width="1292" height="730" loading="lazy" alt="The MATLAB script beside three plots: error against drag parameter D with its minimum at 0.1343, the vertical-fall fit against the no-drag curve, and a zoomed view of the error minimum.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 2</span> MATLAB least-squares fit to the vertical-drop data; the error minimum gives D = 0.134 1/m (Cd = 0.47).</figcaption>
+        </figure>
+      </div>
+
+      <div class="project__text prose">
+        <h2>Objective</h2>
+        <p>Measure the drag on light balls from video, and test whether a drag model predicts their trajectories better than a no-drag model.</p>
+
+        <h2>What I did</h2>
+        <ul>
+          <li>Wrote the team's MATLAB analysis and produced its graphs.</li>
+          <li>Swept 50,000 candidate drag values (D = 0.01 to 1.0 1/m) against vertical-drop data and picked the least-squares best fit: D = 0.134 1/m, which gives Cd = 0.47.</li>
+          <li>Analyzed two ping pong ball throws and two foam ball throws, filmed at 240 fps and tracked in Tracker.</li>
+          <li>Corrected the time base to frame/240 s. Tracker had been left at its 30 fps default, which made every time 8x too long and every velocity 8x too small. A fitted-gravity check on each throw then gave 229–238 fps, confirming the fix.</li>
+          <li>Fit each throw's launch velocity from the early flight (0.05–0.20 s after release) with least-squares line and quadratic fits.</li>
+          <li>Compared each measured landing distance with a no-drag analytical model and the lab's quadratic-drag finite-difference model at Cd = 0.47.</li>
+          <li>Back-solved, for each throw, the Cd that makes the drag model land at the measured distance.</li>
+        </ul>
+
+        <section class="outcome__box" aria-labelledby="result">
+          <h2 id="result">Result</h2>
+          <p>For the ping pong ball, the drag model cut range error from 23–27% to 3–7%. For the foam ball, Cd = 0.47 over-predicted drag: the model landed about 18% short, while the no-drag model came within 7–8%. A drag coefficient measured on one ball did not transfer to the other.</p>
+          <div class="table-scroll" role="region" aria-labelledby="results-caption" tabindex="0">
+            <table class="data-table">
+              <caption id="results-caption">Landing distance in metres; percentages are the error against the measured distance.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Throw</th>
+                  <th scope="col">Measured</th>
+                  <th scope="col">Drag model, Cd = 0.47</th>
+                  <th scope="col">No drag</th>
+                  <th scope="col">Back-solved Cd</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Ping pong ball, attempt 1</th>
+                  <td>1.303</td>
+                  <td>1.393 (+6.9%)</td>
+                  <td>1.648 (+26.5%)</td>
+                  <td>0.69</td>
+                </tr>
+                <tr>
+                  <th scope="row">Ping pong ball, attempt 2</th>
+                  <td>1.009</td>
+                  <td>1.043 (+3.4%)</td>
+                  <td>1.236 (+22.5%)</td>
+                  <td>0.58</td>
+                </tr>
+                <tr>
+                  <th scope="row">Foam ball, attempt 1</th>
+                  <td>0.924</td>
+                  <td>0.750 (−18.8%)</td>
+                  <td>0.986 (+6.7%)</td>
+                  <td>0.10</td>
+                </tr>
+                <tr>
+                  <th scope="row">Foam ball, attempt 2</th>
+                  <td>0.850</td>
+                  <td>0.695 (−18.2%)</td>
+                  <td>0.921 (+8.4%)</td>
+                  <td>0.12</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <h2>What I'd do differently</h2>
+        <p>Next time I would use different tracking software and record at a higher frame rate.</p>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="gallery-title">
+      <h2 class="section__title" id="gallery-title">Gallery</h2>
+      <div class="gallery">
+        <figure class="fig">
+          <a href="../assets/images/drag-coefficient/exp2-ping-pong-trajectory.png">
+            <img src="../assets/images/drag-coefficient/exp2-ping-pong-trajectory.png" width="875" height="656" loading="lazy" alt="Trajectory plot for ping pong ball attempt 2: the measured path lands at 1.009 m, the drag model at 1.043 m, and the no-drag model at 1.236 m.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 3</span> Ping pong ball, attempt 2. Drag model 3.4% long; no-drag model 22.5% long.</figcaption>
+        </figure>
+        <figure class="fig">
+          <a href="../assets/images/drag-coefficient/exp3-foam-trajectory.png">
+            <img src="../assets/images/drag-coefficient/exp3-foam-trajectory.png" width="875" height="656" loading="lazy" alt="Trajectory plot for foam ball attempt 1: the measured path lands at 0.924 m, the drag model at 0.750 m, and the no-drag model at 0.986 m.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 4</span> Foam ball, attempt 1. With Cd = 0.47 the drag model lands 18.8% short, while the no-drag model lands 6.7% long.</figcaption>
+        </figure>
+        <figure class="fig">
+          <a href="../assets/images/drag-coefficient/exp4-foam-trajectory.png">
+            <img src="../assets/images/drag-coefficient/exp4-foam-trajectory.png" width="875" height="656" loading="lazy" alt="Trajectory plot for foam ball attempt 2: the measured path lands at 0.850 m, the drag model at 0.695 m, and the no-drag model at 0.921 m.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 5</span> Foam ball, attempt 2. Drag model 18.2% short; no-drag model 8.4% long.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <nav class="pager" aria-label="Projects">
+      <a class="pager__prev" href="arcade-basketball.html"><span class="pager__label">Previous</span><span aria-hidden="true">←</span> 03 Arcade Basketball Machine</a>
+      <a class="pager__all" href="../index.html#projects">All projects</a>
+      <a class="pager__next" href="materials-testing.html"><span class="pager__label">Next</span>05 Materials Science and Mechanical Testing Labs <span aria-hidden="true">→</span></a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <ul class="site-footer__links">
+        <li><a href="mailto:kotwal.t@northeastern.edu">kotwal.t@northeastern.edu</a></li>
+        <li><a href="https://www.linkedin.com/in/tarohnishkotwal">LinkedIn</a></li>
+        <li><a href="../portfolio-print.html">Print-ready portfolio</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+      <p class="site-footer__note">© 2026 Tarohnish Kotwal · Updated November 2026</p>
+    </div>
+  </footer>
+</body>
+</html>

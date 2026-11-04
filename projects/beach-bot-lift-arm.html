@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Beach Cleanup Robot: Scoop Lift Arm · Tarohnish Kotwal</title>
+  <meta name="description" content="Sized the cantilevered lift arm of a beach-cleaning robot's scoop against six load cases, including a worst-case rock strike, and chose its material for salt-air service.">
+  <link rel="canonical" href="https://tarohnish.github.io/projects/beach-bot-lift-arm.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Beach Cleanup Robot: Scoop Lift Arm · Tarohnish Kotwal">
+  <meta property="og:description" content="Sized the cantilevered lift arm of a beach-cleaning robot's scoop against six load cases, including a worst-case rock strike, and chose its material for salt-air service.">
+  <meta property="og:url" content="https://tarohnish.github.io/projects/beach-bot-lift-arm.html">
+  <meta property="og:image" content="https://tarohnish.github.io/assets/images/beach-bot-lift-arm/robot-body-and-frame.png">
+  <meta property="og:image:alt" content="SolidWorks model of the Beach Bot: an open box-frame body with two lift arms holding a slotted scoop at the front.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/print.css" media="print">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="site-name" href="../index.html">Tarohnish Kotwal</a>
+      <nav aria-label="Main">
+        <ul class="site-nav">
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="mailto:kotwal.t@northeastern.edu">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/tarohnishkotwal">LinkedIn</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <p class="back"><a href="../index.html#projects"><span aria-hidden="true">←</span> All projects</a></p>
+
+    <div class="title-block">
+      <div class="tb-cell tb-title">
+        <span class="tb-label" aria-hidden="true">Title</span>
+        <h1>Beach Cleanup Robot: Scoop Lift Arm</h1>
+      </div>
+      <div class="tb-cell tb-sheet">
+        <span class="tb-label">Sheet</span>
+        <span class="tb-value">01 of 08</span>
+      </div>
+      <dl class="tb-fields">
+        <div class="tb-row">
+          <dt>Dates</dt>
+          <dd>Sep 2026 – present (in progress)</dd>
+        </div>
+        <div class="tb-row">
+          <dt>Context</dt>
+          <dd>Mechanical Engineering Design (ME 4550), group design project</dd>
+        </div>
+        <div class="tb-row">
+          <dt>Role</dt>
+          <dd>In charge of all of the arm's analysis so far, including the bending, shear, and torsion calculations (team of five)</dd>
+        </div>
+        <div class="tb-row">
+          <dt>Tools</dt>
+          <dd>hand calculations (stress, and fatigue with modified Goodman) · material selection · SolidWorks (3D model and 2D drawing)</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="project">
+      <p class="summary">Sized the cantilevered lift arm of a beach-cleaning robot's scoop against six load cases, including a worst-case rock strike, and chose its material for salt-air service.</p>
+
+      <section class="keynums" aria-labelledby="keynums-title">
+        <h2 class="keynums__title" id="keynums-title">Key numbers</h2>
+        <dl class="keynums__list">
+          <div><dt>Lift arm (cantilever)</dt><dd>37.5 in</dd></div>
+          <div><dt>Load cases analyzed</dt><dd>6</dd></div>
+          <div><dt>Worst-case rock strike</dt><dd>500 lbf</dd></div>
+          <div><dt>Yield safety factor (2.0 required)</dt><dd>2.49</dd></div>
+          <div><dt>Fatigue safety factor, lift-and-dump</dt><dd>1.63</dd></div>
+        </dl>
+      </section>
+
+      <div class="project__figs">
+        <figure class="fig fig--hero">
+          <a href="../assets/images/beach-bot-lift-arm/robot-body-and-frame.png">
+            <img src="../assets/images/beach-bot-lift-arm/robot-body-and-frame.png" width="881" height="739" alt="SolidWorks model of the Beach Bot: an open box-frame body with two lift arms holding a slotted scoop at the front.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 1</span> Rough body and frame of the Beach Bot, drawn in SolidWorks.</figcaption>
+        </figure>
+        <figure class="fig fig--col">
+          <a href="../assets/images/beach-bot-lift-arm/lift-arm-dimensions.png">
+            <img src="../assets/images/beach-bot-lift-arm/lift-arm-dimensions.png" width="489" height="479" loading="lazy" alt="SolidWorks drawing of the lift arm in three views, with dimensions 37.50, 2.00, 1.00, 3.00, R1.00 and Ø0.75.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 2</span> Lift arm dimensions, drawn in SolidWorks.</figcaption>
+        </figure>
+      </div>
+
+      <div class="project__text prose">
+        <h2>Objective and constraints</h2>
+        <ul>
+          <li>The Beach Bot is our group's affordable, easy-to-use robot for cleaning trash in and on beach sand.</li>
+          <li>The scoop's lift arm is a 37.5 in cantilever that has to carry scoop loads and survive impacts.</li>
+          <li>Requirement: yield safety factor of at least 2.0.</li>
+          <li>The arm works in salt air, so corrosion and weight both matter.</li>
+        </ul>
+
+        <h2>What I did</h2>
+        <ul>
+          <li>Analyzed the arm across 6 load cases with free-body, shear, and bending-moment diagrams.</li>
+          <li>Designed for a 500 lbf worst-case rock strike (250 lbf per arm).</li>
+          <li>Sized a 2.00 × 1.00 in 6061-T6 aluminum section to a yield safety factor of 2.49 (2.0 required) and a fatigue safety factor of 1.63 for lift-and-dump using modified Goodman.</li>
+          <li>Compared 6061-T6 with 5052 aluminum, 7075 aluminum, 316 stainless steel, and A36 steel, and chose 6061-T6 for strength-to-weight and salt-air corrosion resistance.</li>
+        </ul>
+
+        <section class="outcome__box" aria-labelledby="result">
+          <h2 id="result">Result</h2>
+          <p>A 2.00 × 1.00 in 6061-T6 arm that meets the 2.0 yield target (2.49) and holds up in fatigue (1.63 for lift-and-dump). The strike torque is too much for the shaft and gearbox, so the team adopted a frame down-stop.</p>
+        </section>
+      </div>
+    </div>
+
+    <nav class="pager" aria-label="Projects">
+      <span class="pager__prev"></span>
+      <a class="pager__all" href="../index.html#projects">All projects</a>
+      <a class="pager__next" href="bmw-internship.html"><span class="pager__label">Next</span>02 BMW Infinity Workshop — Test Engineer Intern <span aria-hidden="true">→</span></a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <ul class="site-footer__links">
+        <li><a href="mailto:kotwal.t@northeastern.edu">kotwal.t@northeastern.edu</a></li>
+        <li><a href="https://www.linkedin.com/in/tarohnishkotwal">LinkedIn</a></li>
+        <li><a href="../portfolio-print.html">Print-ready portfolio</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+      <p class="site-footer__note">© 2026 Tarohnish Kotwal · Updated November 2026</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Arcade Basketball Machine · Tarohnish Kotwal</title>
+  <meta name="description" content="Built the actuation and electronics for a four-person arcade basketball game, from the solenoid's 12 V supply to the ring light and servo-driven obstacles, and kept it running through the full Northeastern Expo.">
+  <link rel="canonical" href="https://tarohnish.github.io/projects/arcade-basketball.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Arcade Basketball Machine · Tarohnish Kotwal">
+  <meta property="og:description" content="Built the actuation and electronics for a four-person arcade basketball game, from the solenoid's 12 V supply to the ring light and servo-driven obstacles, and kept it running through the full Northeastern Expo.">
+  <meta property="og:url" content="https://tarohnish.github.io/projects/arcade-basketball.html">
+  <meta property="og:image" content="https://tarohnish.github.io/assets/images/arcade-basketball/team-with-finished-machine.jpg">
+  <meta property="og:image:alt" content="Three team members standing behind the finished arcade basketball machine on a classroom table.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/print.css" media="print">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="site-name" href="../index.html">Tarohnish Kotwal</a>
+      <nav aria-label="Main">
+        <ul class="site-nav">
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="mailto:kotwal.t@northeastern.edu">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/tarohnishkotwal">LinkedIn</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <p class="back"><a href="../index.html#projects"><span aria-hidden="true">←</span> All projects</a></p>
+
+    <div class="title-block">
+      <div class="tb-cell tb-title">
+        <span class="tb-label" aria-hidden="true">Title</span>
+        <h1>Arcade Basketball Machine</h1>
+      </div>
+      <div class="tb-cell tb-sheet">
+        <span class="tb-label">Sheet</span>
+        <span class="tb-value">03 of 08</span>
+      </div>
+      <dl class="tb-fields">
+        <div class="tb-row">
+          <dt>Dates</dt>
+          <dd>Sep 2024 – Jan 2025</dd>
+        </div>
+        <div class="tb-row">
+          <dt>Context</dt>
+          <dd>Cornerstone Engineering 1 (GE 1501), Northeastern University, team of four</dd>
+        </div>
+        <div class="tb-row">
+          <dt>Role</dt>
+          <dd>Team lead; actuation and electronics: soldering, crimping, and wiring; the solenoid's power supply; the ring light; the servo-mounted obstacles</dd>
+        </div>
+        <div class="tb-row">
+          <dt>Tools</dt>
+          <dd>Arduino (C++) · 12 V solenoid · servo · LED strip and ring light · soldering · crimping · vacuum forming · woodworking</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="project">
+      <p class="summary">Built the actuation and electronics for a four-person arcade basketball game, from the solenoid's 12 V supply to the ring light and servo-driven obstacles, and kept it running through the full Northeastern Expo.</p>
+
+      <section class="keynums" aria-labelledby="keynums-title">
+        <h2 class="keynums__title" id="keynums-title">Key numbers</h2>
+        <dl class="keynums__list">
+          <div><dt>Round length</dt><dd>60 s</dd></div>
+          <div><dt>Solenoid supply</dt><dd>12 V, 2 A</dd></div>
+          <div><dt>Arduino boards</dt><dd>3</dd></div>
+          <div><dt>Team size</dt><dd>4</dd></div>
+        </dl>
+      </section>
+
+      <div class="project__figs">
+        <figure class="fig fig--hero">
+          <a href="../assets/images/arcade-basketball/team-with-finished-machine.jpg">
+            <img src="../assets/images/arcade-basketball/team-with-finished-machine.jpg" width="1600" height="1200" alt="Three team members standing behind the finished arcade basketball machine on a classroom table.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 1</span> The team with the finished machine.</figcaption>
+        </figure>
+        <figure class="fig fig--col">
+          <a href="../assets/images/arcade-basketball/prototype-solenoid-circuit.jpg">
+            <img src="../assets/images/arcade-basketball/prototype-solenoid-circuit.jpg" width="1050" height="1400" loading="lazy" alt="A breadboard circuit on a desk wired to a red arcade button, a push-pull solenoid and alligator-clip power leads.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 2</span> Milestone 2 prototype circuit: arcade button, breadboard driver, and solenoid.</figcaption>
+        </figure>
+        <figure class="fig fig--col">
+          <a href="../assets/images/arcade-basketball/solenoid-driver-breadboard.jpg">
+            <img src="../assets/images/arcade-basketball/solenoid-driver-breadboard.jpg" width="1050" height="1400" loading="lazy" alt="Close-up of the breadboard driver: a TO-220 transistor, a diode and a resistor wired with jumper leads.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 3</span> The solenoid driver on the breadboard: transistor, diode, and resistor.</figcaption>
+        </figure>
+      </div>
+
+      <div class="project__text prose">
+        <h2>Objective and constraints</h2>
+        <ul>
+          <li>Score as many points as possible in 60 seconds while a moving obstacle blocks shots; top scores go on a leaderboard. The game recreates the high release point of the tallest NBA players.</li>
+          <li>The whole project had to fit in one duffel bag (about a 10 × 30 in base) and be light enough for one person to carry.</li>
+        </ul>
+
+        <h2>How it works</h2>
+        <p>Pressing the arcade button fires an Arduino-controlled 12 V solenoid that launches a ping-pong ball at the hoop, while a servo sweeps wooden obstacles across the shot. Balls roll back down a ramp for the next shot. Three Arduino boards ran the solenoid, servo, LED strip, ring light, and a light sensor.</p>
+
+        <h2>What I did</h2>
+        <ul>
+          <li>Soldered and crimped all of the electronics, including the ring-light wiring and extended jumper wires.</li>
+          <li>Coded the ring light and worked with a teammate on the LED-strip code.</li>
+          <li>Vacuum-formed and sanded a light diffuser for the ring light.</li>
+          <li>Designed and built the wooden obstacles mounted on the moving servo.</li>
+          <li>Powered the solenoid: it needed 12 V and 2 A, more than a laptop or breadboard could supply, so I sourced a 12 V adapter and a barrel-jack adapter to run it safely.</li>
+          <li>Worked through the overheating that fried two Arduino boards: changed the driver type and the ball mass, and on the third board secured every connection, after which the solenoid ran without issues.</li>
+        </ul>
+
+        <h2>How the design changed</h2>
+        <ul>
+          <li>The cardboard prototype (Milestone 2) playtest exposed five problems:
+            <ul>
+              <li>no scoring or timer</li>
+              <li>an inconsistent, hand-moved hoop</li>
+              <li>a cardboard button housing that collapsed when players slammed the button</li>
+              <li>manual reloading</li>
+              <li>a solenoid too weak to launch from below, which fried the board when overused</li>
+            </ul>
+          </li>
+          <li>The solenoid was too weak, so the team raised the launch point (a teammate's shooter-elevation mechanism) and adjusted the launch angle and height.</li>
+          <li>For portability, the team replaced the acrylic casing with nets, turned the layout horizontal, and swapped a planned rotating ball feeder for a ramp.</li>
+          <li>Teammates led the multi-board code integration, the 3D printing and AutoCAD laser-cut designs, and the laser cutting and assembly.</li>
+        </ul>
+
+        <section class="outcome__box" aria-labelledby="result">
+          <h2 id="result">Result</h2>
+          <p>The game ran through the full Northeastern Expo on three Arduino boards. The team also got the ball to spin down through the hoop, which fixed an earlier scoring flaw. It was most popular with competitive players, some of whom tried to "hack" the game for faster points.</p>
+        </section>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="gallery-title">
+      <h2 class="section__title" id="gallery-title">Gallery</h2>
+      <div class="gallery">
+        <figure class="fig">
+          <a href="../assets/images/arcade-basketball/concept-sketch.png">
+            <img src="../assets/images/arcade-basketball/concept-sketch.png" width="747" height="587" loading="lazy" alt="Hand-drawn concept sketch of the machine labeling the hoop, a ring light, a motor-gear-belt moving hoop, a rotating wheel to catch falling balls, the point counter and the solenoid button.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 4</span> Early concept sketch: hoop, ball path, scoring, and solenoid placement.</figcaption>
+        </figure>
+        <figure class="fig">
+          <a href="../assets/images/arcade-basketball/cardboard-prototype.jpg">
+            <img src="../assets/images/arcade-basketball/cardboard-prototype.jpg" width="617" height="613" loading="lazy" alt="Cardboard prototype with a PVC post holding a box above a ramp, a hoop made from a cup and mesh, and ping pong balls.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 5</span> Milestone 2 cardboard and PVC prototype, used for the first playtest.</figcaption>
+        </figure>
+        <figure class="fig">
+          <a href="../assets/images/arcade-basketball/arduino-uno-arcade-button.jpg">
+            <img src="../assets/images/arcade-basketball/arduino-uno-arcade-button.jpg" width="1050" height="1400" loading="lazy" alt="An Arduino Uno wired to a red arcade button, with a barrel-jack power cable plugged in.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 6</span> An Arduino Uno wired to the arcade button that fires the shot.</figcaption>
+        </figure>
+        <figure class="fig">
+          <a href="../assets/images/arcade-basketball/redboard-wiring.jpg">
+            <img src="../assets/images/arcade-basketball/redboard-wiring.jpg" width="1200" height="1600" loading="lazy" alt="A SparkFun RedBoard wired through a breadboard to a push-pull solenoid and a red arcade button.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 7</span> Arduino-compatible board and wiring during the build.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <nav class="pager" aria-label="Projects">
+      <a class="pager__prev" href="bmw-internship.html"><span class="pager__label">Previous</span><span aria-hidden="true">←</span> 02 BMW Infinity Workshop — Test Engineer Intern</a>
+      <a class="pager__all" href="../index.html#projects">All projects</a>
+      <a class="pager__next" href="drag-coefficient.html"><span class="pager__label">Next</span>04 Video-Tracked Drag Coefficient Analysis <span aria-hidden="true">→</span></a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <ul class="site-footer__links">
+        <li><a href="mailto:kotwal.t@northeastern.edu">kotwal.t@northeastern.edu</a></li>
+        <li><a href="https://www.linkedin.com/in/tarohnishkotwal">LinkedIn</a></li>
+        <li><a href="../portfolio-print.html">Print-ready portfolio</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+      <p class="site-footer__note">© 2026 Tarohnish Kotwal · Updated November 2026</p>
+    </div>
+  </footer>
+</body>
+</html>

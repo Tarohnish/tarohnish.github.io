@@ -1,0 +1,11 @@
+# Kept on this computer, never uploaded
+content/
+_not-for-site/
+START-HERE.md
+CLAUDE.md
+.claude/
+
+# OS clutter
+Thumbs.db
+desktop.ini
+.DS_Store

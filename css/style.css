@@ -1,0 +1,1141 @@
+/* Tarohnish Kotwal — portfolio styles.
+   A drawing sheet: cool paper, graphite ink, one drafting-blue accent.
+   Redline is reserved for TODO placeholders and disappears once content is final. */
+
+:root {
+  --paper: #F5F6F4;
+  --ink: #1C2126;
+  --graphite: #4F5A63;
+  --hairline: #D3D8DB;
+  --blue: #1F4E8C;
+  --redline: #B3261E;
+
+  --sans: "IBM Plex Sans", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+
+  --page: 80rem;
+  --gutter: 16px;
+  --measure: 68ch;
+}
+
+@media (min-width: 700px) {
+  :root { --gutter: 32px; }
+}
+
+/* ---------- Base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--blue);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p, ul, ol, dl, figure { margin: 0; }
+
+.wrap {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  top: -4rem;
+  left: var(--gutter);
+  z-index: 10;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.skip-link:focus { top: 0.5rem; }
+
+/* ---------- Header and footer (every page) ---------- */
+
+.site-header { border-bottom: 1px solid var(--ink); }
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+}
+
+.site-name {
+  color: var(--ink);
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-name:hover { text-decoration: underline; }
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.site-footer {
+  margin-top: 4rem;
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid var(--ink);
+  font-size: 0.9375rem;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__note {
+  margin-top: 0.5rem;
+  color: var(--graphite);
+  font-size: 0.875rem;
+}
+
+/* ---------- Shared pieces ---------- */
+
+.section { margin-top: 3.5rem; }
+
+.section__title { font-size: 1.375rem; }
+
+/* Dimension line: extension tick, arrowhead, line, arrowhead, extension tick. */
+.dim-rule {
+  display: flex;
+  align-items: center;
+  height: 12px;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.dim-rule::before,
+.dim-rule::after {
+  content: "";
+  flex: none;
+  width: 9px;
+  height: 12px;
+  background: no-repeat center / 9px 12px;
+}
+
+.dim-rule::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='12' viewBox='0 0 9 12'%3E%3Cpath d='M.5 0v12' stroke='%231F4E8C'/%3E%3Cpath d='M1 6 9 3v6z' fill='%231F4E8C'/%3E%3C/svg%3E");
+}
+
+.dim-rule::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='12' viewBox='0 0 9 12'%3E%3Cpath d='M8.5 0v12' stroke='%231F4E8C'/%3E%3Cpath d='M8 6 0 3v6z' fill='%231F4E8C'/%3E%3C/svg%3E");
+}
+
+.dim-rule span {
+  flex: 1;
+  border-top: 1px solid var(--blue);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+  color: var(--graphite);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+.tags li + li::before {
+  content: "·";
+  content: "·" / "";
+  margin: 0 0.5em;
+}
+
+/* Unresolved [NEEDS] / [CONFIRM] items, styled as a checker's redline. */
+.todo {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px dashed var(--redline);
+  color: var(--redline);
+  font-family: var(--mono);
+  font-size: 0.875rem;
+}
+
+/* The same marker inside running text, a caption, or the title block. */
+.todo-inline {
+  padding: 0 0.25em;
+  border: 1px dashed var(--redline);
+  color: var(--redline);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+/* ---------- Home ---------- */
+
+/* Hero: headshot, identity, intro. Kept compact so "Featured projects" shows on a 1280×720 first screen. */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  padding-top: 2rem;
+}
+
+.hero__photo { width: 120px; }
+
+.hero h1 { font-size: 2rem; }
+
+.hero__meta {
+  max-width: var(--measure);
+  margin-top: 0.375rem;
+  color: var(--graphite);
+  font-size: 0.9375rem;
+}
+
+.hero__avail {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.hero__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.125rem 1.5rem;
+  margin-top: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.9375rem;
+}
+
+.hero__intro {
+  max-width: var(--measure);
+  font-size: 1rem;
+}
+
+.hero__intro p + p { margin-top: 0.75rem; }
+
+@media (min-width: 700px) {
+  .hero {
+    grid-template-columns: 152px 1fr;
+    column-gap: 2rem;
+    row-gap: 1.5rem;
+  }
+  .hero__photo { width: 100%; }
+  .hero h1 { font-size: 2.5rem; }
+  .hero__intro { grid-column: 1 / -1; }
+}
+
+@media (min-width: 960px) {
+  .hero {
+    grid-template-columns: 168px minmax(0, 1fr) minmax(0, 1.3fr);
+    align-items: start;
+  }
+  .hero h1 { font-size: 2.25rem; }
+  .hero__contact { flex-direction: column; }
+  .hero__intro { grid-column: auto; }
+}
+
+/* Featured project cards: a sheet with a mini title-block strip. */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 700px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ink);
+}
+
+.card:hover { border-color: var(--blue); }
+
+.card:focus-within {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.card__media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-bottom: 1px solid var(--ink);
+}
+
+.card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__media--contain img {
+  padding: 0.5rem;
+  object-fit: contain;
+}
+
+/* Portrait photos cropped into the 4:3 card: keep the upper-middle band. */
+.card__media .crop-upper { object-position: 50% 40%; }
+
+.card__strip {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  border-bottom: 1px solid var(--ink);
+}
+
+.card__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--ink);
+  font-family: var(--mono);
+}
+
+.card__title {
+  padding: 0.625rem 0.875rem;
+  font-size: 1.0625rem;
+}
+
+.card__title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* The title link covers the whole card, so the card is one link. */
+.card__title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.card__title a:focus-visible { outline: none; }
+
+.card:hover .card__title a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.card__summary {
+  padding: 0.75rem 0.875rem 0;
+  font-size: 0.9375rem;
+}
+
+.card .tags {
+  margin-top: auto;
+  padding: 0.75rem 0.875rem 0.875rem;
+}
+
+/* "More projects", styled as a drawing's parts list. */
+.parts {
+  width: 100%;
+  border: 2px solid var(--ink);
+  border-collapse: collapse;
+}
+
+.parts th,
+.parts td {
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--ink);
+  text-align: left;
+  vertical-align: top;
+}
+
+.parts thead th {
+  color: var(--graphite);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.parts__item {
+  width: 4.5rem;
+  font-family: var(--mono);
+}
+
+.parts__name { font-weight: 600; }
+
+.parts__summary {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--graphite);
+  font-size: 0.9375rem;
+  font-weight: 400;
+}
+
+.parts__context { font-size: 0.9375rem; }
+
+.parts__dates {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 699px) {
+  .parts thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .parts,
+  .parts tbody { display: block; }
+
+  .parts tr {
+    display: grid;
+    grid-template-columns: 2.75rem 1fr;
+    grid-template-areas:
+      "item name"
+      "item context"
+      "item dates";
+  }
+
+  .parts tr + tr { border-top: 1px solid var(--ink); }
+
+  .parts td {
+    padding: 0.125rem 0.75rem;
+    border: 0;
+  }
+
+  .parts .parts__item {
+    grid-area: item;
+    width: auto;
+    padding-top: 0.625rem;
+    border-right: 1px solid var(--ink);
+  }
+
+  .parts .parts__name {
+    grid-area: name;
+    padding-top: 0.625rem;
+  }
+
+  .parts .parts__context {
+    grid-area: context;
+    color: var(--graphite);
+  }
+
+  .parts .parts__dates {
+    grid-area: dates;
+    padding-bottom: 0.625rem;
+    color: var(--graphite);
+  }
+}
+
+.teams {
+  display: grid;
+  gap: 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+/* On the About page the list follows the heading directly (no dimension line in between). */
+.section__title + .teams { margin-top: 1rem; }
+
+/* Home: the two entries side by side on desktop. */
+@media (min-width: 1100px) {
+  .teams--split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3rem;
+  }
+}
+
+.teams__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.75rem;
+}
+
+.teams__name { font-size: 1.0625rem; }
+
+.teams__meta {
+  color: var(--graphite);
+  font-family: var(--mono);
+  font-size: 0.875rem;
+}
+
+.teams__text {
+  max-width: var(--measure);
+  margin-top: 0.25rem;
+}
+
+/* ---------- Project page ---------- */
+
+.back {
+  margin: 1rem 0 0.75rem;
+  font-size: 0.9375rem;
+}
+
+/* Title block: the site's signature element. */
+.title-block {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  border: 2px solid var(--ink);
+}
+
+.tb-cell {
+  padding: 0.625rem 0.875rem 0.75rem;
+  border-bottom: 1px solid var(--ink);
+}
+
+.tb-title { border-right: 1px solid var(--ink); }
+
+.tb-label,
+.tb-row dt {
+  color: var(--graphite);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tb-label { display: block; }
+
+.tb-title h1,
+.tb-title h2 {
+  margin-top: 0.25rem;
+  font-size: 1.625rem;
+}
+
+.tb-value {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--mono);
+  white-space: nowrap;
+}
+
+.tb-fields { grid-column: 1 / -1; }
+
+.tb-row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  align-items: baseline;
+}
+
+.tb-row + .tb-row { border-top: 1px solid var(--ink); }
+
+.tb-row dt { padding: 0.5rem 0.875rem; }
+
+.tb-row dd {
+  margin: 0;
+  padding: 0.5rem 0.875rem;
+  border-left: 1px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 0.9375rem;
+}
+
+@media (min-width: 700px) {
+  .tb-title h1,
+  .tb-title h2 { font-size: 2rem; }
+}
+
+@media (max-width: 559px) {
+  .tb-row { grid-template-columns: 1fr; }
+  .tb-row dt { padding-bottom: 0; }
+  .tb-row dd {
+    padding-top: 0.125rem;
+    border-left: 0;
+  }
+}
+
+/* Desktop: Dates | Context side by side; Role and Tools get full-width rows so long values
+   wrap to one or two lines and the title block stays short. */
+@media (min-width: 1100px) {
+  .tb-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tb-row:nth-child(2) {
+    border-top: 0;
+    border-left: 1px solid var(--ink);
+  }
+  .tb-row:nth-child(n + 3) { grid-column: 1 / -1; }
+}
+
+/* Two columns on desktop: text on the left, hero and key figures on the right.
+   HTML order: summary, key numbers, figure column, text. Below 1100 px the figure column
+   dissolves (display: contents) so the order reads summary, key numbers, hero, text, figures. */
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.project__figs { display: contents; }
+
+.project .summary { order: 1; }
+.project .keynums { order: 2; }
+.project .fig--hero { order: 3; }
+.project .project__text { order: 4; }
+.project .fig--col { order: 5; }
+
+@media (min-width: 700px) and (max-width: 1099px) {
+  .project { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project > *,
+  .project__figs > * { grid-column: 1 / -1; }
+  .project__figs > .fig--col { grid-column: auto; }
+}
+
+@media (min-width: 1100px) {
+  .project {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "summary figs"
+      "keynums figs"
+      "text    figs";
+    gap: 1rem 3rem;
+    align-items: start;
+  }
+  .project .summary { grid-area: summary; }
+  .project .keynums { grid-area: keynums; }
+  .project .project__text { grid-area: text; }
+  .project__figs {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    grid-area: figs;
+  }
+}
+
+.summary {
+  max-width: 60ch;
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+@media (min-width: 1100px) {
+  .summary { font-size: 1.0625rem; }
+}
+
+/* Key numbers: a drawing's notes block. Mono label left, mono value right, ruled rows. */
+.keynums { max-width: var(--measure); }
+
+.keynums__title {
+  margin-bottom: 0.375rem;
+  font-size: 1rem;
+}
+
+.keynums__list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border: 1px solid var(--ink);
+}
+
+.keynums__list > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.keynums__list > div:first-child { border-top: 0; }
+
+.keynums dt {
+  color: var(--graphite);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+.keynums dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (min-width: 560px) {
+  .keynums__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .keynums__list > div:nth-child(2) { border-top: 0; }
+  .keynums__list > div:nth-child(even) { border-left: 1px solid var(--hairline); }
+}
+
+/* Figures: never cropped, never upscaled past their native size, no borders. */
+.fig a { display: block; }
+
+.fig img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.fig--hero img { max-height: 75vh; }
+
+/* Desktop: cap the hero so it fits beside the summary and key numbers on the first screen. */
+@media (min-width: 1100px) {
+  .fig--hero img { max-height: clamp(17.5rem, calc(100vh - 27.5rem), 40rem); }
+}
+
+.fig figcaption {
+  max-width: var(--measure);
+  margin-top: 0.5rem;
+  color: var(--graphite);
+  font-size: 0.875rem;
+}
+
+.fig__num {
+  margin-right: 0.25em;
+  color: var(--ink);
+  font-family: var(--mono);
+}
+
+/* A second, smaller caption line, e.g. a diagram's sign convention. */
+.fig__key {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+}
+
+/* Comparison pair (a) | (b), or a group of four as 2 × 2, with one shared caption. */
+.pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.pair__label {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  text-align: center;
+}
+
+/* CSS crop for an image with letterbox bars; the file stays untouched. */
+.fig .crop-bars {
+  aspect-ratio: 738 / 1310;
+  object-fit: cover;
+}
+
+/* Text column */
+.prose { max-width: var(--measure); }
+
+.prose h2 {
+  margin-top: 2.5rem;
+  font-size: 1.375rem;
+}
+
+.prose > h2:first-child { margin-top: 0.5rem; }
+
+.prose h3 {
+  margin-top: 1.5rem;
+  font-size: 1.0625rem;
+}
+
+.prose p { margin-top: 0.75rem; }
+
+.prose ul {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.prose li + li { margin-top: 0.375rem; }
+
+.prose ul ul { margin-top: 0.375rem; }
+
+/* "Tools explained" and other term lists: term, then what it is. */
+.glossary { margin-top: 0.75rem; }
+
+.glossary > div {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0 1rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.glossary > div:last-child { border-bottom: 1px solid var(--hairline); }
+
+.glossary dt {
+  font-family: var(--mono);
+  font-weight: 500;
+}
+
+.glossary dd { margin: 0; }
+
+@media (max-width: 559px) {
+  .glossary > div { grid-template-columns: 1fr; }
+}
+
+/* Wider term column, sans labels: Chess "Pieces and why", About education and skills. */
+@media (min-width: 560px) {
+  .glossary--wide > div { grid-template-columns: 13rem 1fr; }
+}
+
+.glossary--wide dt {
+  font-family: var(--sans);
+  font-weight: 600;
+}
+
+/* Result: a ruled box in the text column. */
+.outcome__box {
+  margin-top: 2.5rem;
+  padding: 1rem 1.25rem 1.125rem;
+  border: 1px solid var(--ink);
+}
+
+.outcome__box h2,
+.outcome__box h3 {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  font-size: 1.125rem;
+}
+
+.outcome__box ul { margin-top: 0.5rem; }
+
+/* Results tables scroll inside their own box on narrow screens; the page never scrolls sideways. */
+.table-scroll {
+  max-width: 100%;
+  margin-top: 0.75rem;
+  overflow-x: auto;
+}
+
+.data-table {
+  min-width: 36rem;
+  border: 2px solid var(--ink);
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.data-table caption {
+  padding-bottom: 0.5rem;
+  color: var(--graphite);
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ink);
+  text-align: left;
+  vertical-align: top;
+}
+
+.data-table thead th {
+  color: var(--graphite);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.data-table tbody th { font-weight: 400; }
+
+.data-table td {
+  font-family: var(--mono);
+  white-space: nowrap;
+}
+
+/* Gallery: every remaining figure. 1 / 2 / 3 columns; pairs span two; never upscaled. */
+.gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-flow: dense;
+  gap: 2rem 1.5rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.gallery .todo { margin-top: 0; }
+
+@media (min-width: 700px) {
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery .fig--pair { grid-column: span 2; }
+}
+
+@media (min-width: 1100px) {
+  .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.pager {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ink);
+}
+
+.pager__label {
+  display: block;
+  color: var(--graphite);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+}
+
+@media (min-width: 700px) {
+  .pager {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: end;
+  }
+  .pager__all { text-align: center; }
+  .pager__next { text-align: right; }
+}
+
+/* ---------- About ---------- */
+
+.page-title {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
+@media (min-width: 700px) {
+  .page-title { font-size: 2.5rem; }
+}
+
+/* Desktop: story and teams on the left, reference lists on the right. */
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 3rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 1100px) {
+  .about-layout {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: start;
+  }
+  .about-side > .section:first-child { margin-top: 0; }
+  /* The right column is narrow: labels over their lists, photos two-up. */
+  .about-side .glossary--wide > div { grid-template-columns: 1fr; }
+  .about-side .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.about-intro { max-width: var(--measure); }
+
+.about-intro::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.about-intro__photo {
+  width: 160px;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 560px) {
+  .about-intro__photo {
+    float: left;
+    width: 176px;
+    margin: 0.3rem 1.5rem 0.75rem 0;
+  }
+}
+
+.about-intro p + p { margin-top: 0.875rem; }
+
+.about-intro__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin-top: 1.25rem;
+  font-family: var(--mono);
+  font-size: 0.9375rem;
+}
+
+.coursework {
+  max-width: var(--measure);
+  margin-top: 0.75rem;
+}
+
+/* Baja teardown photos, in removal order, all cropped to the same 3:4 frame. */
+.photo-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  max-width: 56rem;
+  margin-top: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 700px) {
+  .photo-row { grid-template-columns: repeat(3, 1fr); }
+}
+
+.photo-row img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.photo-row figcaption {
+  margin-top: 0.5rem;
+  color: var(--graphite);
+  font-size: 0.875rem;
+}
+
+/* ---------- Print portfolio (portfolio-print.html), as seen on screen ---------- */
+
+.print-note {
+  margin-top: 1.5rem;
+  color: var(--graphite);
+  font-size: 0.9375rem;
+}
+
+.cover { margin-top: 2rem; }
+
+.cover .tb-row dd a { color: inherit; }
+
+.sheet {
+  max-width: 52rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--ink);
+}
+
+.sheet > * + * { margin-top: 1.25rem; }
+
+.sheet .fig--hero img { max-height: 28rem; }
+
+.sheet .prose h3 {
+  margin-top: 0;
+  font-size: 1.125rem;
+}
+
+.sheet .outcome__box { margin-top: 1.25rem; }
+
+.sheet__more {
+  color: var(--graphite);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+/* ---------- Motion: the site's one animation (see CLAUDE.md) ----------
+   "Exploded view" on the home Featured grid. Each card runs on its own view timeline and
+   spreads away from a drafting centerline in the row gap, settling by the time it is 20% into
+   view. Unsupported browsers, reduced motion and print get the plain grid with no line. */
+
+@keyframes explode-out {
+  from {
+    opacity: 0.35;
+    transform: translate(var(--pull-x), var(--pull-y)) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .cards {
+      --row-gap: 2.5rem;
+      position: relative;
+      row-gap: var(--row-gap);
+    }
+
+    /* Centerline (long dash, short dash) in the gap above the third card. */
+    .cards::before {
+      content: "";
+      position: absolute;
+      grid-column: 1 / -1;
+      grid-row: 3;
+      top: calc(var(--row-gap) / -2);
+      left: -12px;
+      right: -12px;
+      height: 1px;
+      background: repeating-linear-gradient(to right,
+        var(--blue) 0 20px, transparent 20px 24px,
+        var(--blue) 24px 28px, transparent 28px 32px);
+      pointer-events: none;
+    }
+
+    /* Cards above the line start pulled down toward it; cards below start pulled up. */
+    .card {
+      --pull-x: 0%;
+      --pull-y: var(--row-gap);
+      animation: explode-out linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 20%;
+    }
+
+    .card:nth-child(n + 3) { --pull-y: calc(var(--row-gap) * -1); }
+
+    /* A focused card always shows in its final position. */
+    .card:focus-within { animation: none; }
+  }
+
+  /* Two columns: the line sits between the rows, and cards also start pulled toward the center. */
+  @media screen and (prefers-reduced-motion: no-preference) and (min-width: 700px) {
+    .cards::before { grid-row: 2; }
+    .card:nth-child(odd) { --pull-x: 5%; }
+    .card:nth-child(even) { --pull-x: -5%; }
+  }
+}

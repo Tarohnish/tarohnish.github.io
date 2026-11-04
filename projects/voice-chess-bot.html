@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Voice-Automated Chess Bot · Tarohnish Kotwal</title>
+  <meta name="description" content="Wrote the Arduino code, handled the DC motors and built the wooden chessboard for a three-person voice-controlled chess robot prototype; by the expo it moved a pawn to e3.">
+  <link rel="canonical" href="https://tarohnish.github.io/projects/voice-chess-bot.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Voice-Automated Chess Bot · Tarohnish Kotwal">
+  <meta property="og:description" content="Wrote the Arduino code, handled the DC motors and built the wooden chessboard for a three-person voice-controlled chess robot prototype; by the expo it moved a pawn to e3.">
+  <meta property="og:url" content="https://tarohnish.github.io/projects/voice-chess-bot.html">
+  <meta property="og:image" content="https://tarohnish.github.io/assets/images/voice-chess-bot/xy-gantry.jpg">
+  <meta property="og:image:alt" content="The chess bot's XY gantry of aluminum rails and 3D-printed carriages on a workbench.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/print.css" media="print">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="site-name" href="../index.html">Tarohnish Kotwal</a>
+      <nav aria-label="Main">
+        <ul class="site-nav">
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="mailto:kotwal.t@northeastern.edu">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/tarohnishkotwal">LinkedIn</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <p class="back"><a href="../index.html#projects"><span aria-hidden="true">←</span> All projects</a></p>
+
+    <div class="title-block">
+      <div class="tb-cell tb-title">
+        <span class="tb-label" aria-hidden="true">Title</span>
+        <h1>Voice-Automated Chess Bot</h1>
+      </div>
+      <div class="tb-cell tb-sheet">
+        <span class="tb-label">Sheet</span>
+        <span class="tb-value">07 of 08</span>
+      </div>
+      <dl class="tb-fields">
+        <div class="tb-row">
+          <dt>Dates</dt>
+          <dd>Jan 2023 – Jul 2023</dd>
+        </div>
+        <div class="tb-row">
+          <dt>Context</dt>
+          <dd>Makers Asylum residency, Mumbai, India; team of three</dd>
+        </div>
+        <div class="tb-row">
+          <dt>Role</dt>
+          <dd>In charge of the Arduino code, the brushless DC motors, the chessboard woodworking, and the paper prototype; helped design 3D-printed parts in Fusion 360</dd>
+        </div>
+        <div class="tb-row">
+          <dt>Tools</dt>
+          <dd>Arduino · stepper motors · brushless DC motors · electromagnet · Fusion 360 · 3D printing · laser cutting · woodworking · Adafruit speech recognition on a Raspberry Pi (built by a teammate)</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="project">
+      <p class="summary">Wrote the Arduino code, handled the DC motors and built the wooden chessboard for a three-person voice-controlled chess robot prototype; by the expo it moved a pawn to e3.</p>
+
+      <div class="project__figs">
+        <figure class="fig fig--hero">
+          <a href="../assets/images/voice-chess-bot/xy-gantry.jpg">
+            <img src="../assets/images/voice-chess-bot/xy-gantry.jpg" width="1600" height="1200" alt="Two perpendicular aluminum rails with 3D-printed carriages, a belt and a stepper motor on a workbench, with an Arduino and driver boards beside them and chess pieces nearby.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 1</span> The XY gantry that carries the electromagnet.</figcaption>
+        </figure>
+        <figure class="fig fig--col">
+          <a href="../assets/images/voice-chess-bot/3d-printed-part.jpg">
+            <img src="../assets/images/voice-chess-bot/3d-printed-part.jpg" width="1600" height="1200" loading="lazy" alt="A hand holding a white 3D-printed bracket with a large center hole and four mounting holes.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 2</span> One of the 3D-printed motor mounts; the frame brackets and the board's stands were 3D-printed too.</figcaption>
+        </figure>
+        <figure class="fig fig--col">
+          <a href="../assets/images/voice-chess-bot/cut-frame-vs-cad-1.jpg">
+            <img src="../assets/images/voice-chess-bot/cut-frame-vs-cad-1.jpg" width="1199" height="1600" loading="lazy" alt="A hand holding a cut cardboard frame with marked holes in front of a laptop showing the part's Fusion 360 sketch.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 3</span> A cut frame part held up against its CAD model to check the fit.</figcaption>
+        </figure>
+      </div>
+
+      <div class="project__text prose">
+        <h2>Objective</h2>
+        <p>Build a working prototype for the expo.</p>
+
+        <h2>What I did</h2>
+        <ul>
+          <li>Wrote the Arduino code and handled the brushless DC motors.</li>
+          <li>Built the wooden chessboard.</li>
+          <li>Made the paper prototype.</li>
+          <li>Helped design the 3D-printed motor mounts, frame brackets and board stands in Fusion 360, making edits to the parts.</li>
+        </ul>
+
+        <h2>Built by the team</h2>
+        <p>A teammate built the speech interface (Adafruit speech recognition on a Raspberry Pi). The team also built the XY gantry that carries the electromagnet under the board, and 3D-printed the motor mounts, the frame brackets, and the stands for the whole board.</p>
+
+        <section class="outcome__box" aria-labelledby="result">
+          <h2 id="result">Result</h2>
+          <p>Got one piece, a pawn, to move to e3. The move didn't come from a spoken command.</p>
+        </section>
+
+        <h2>What I learned</h2>
+        <p>The project deepened my interest in inclusive design and in integrating hardware and software.</p>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="gallery-title">
+      <h2 class="section__title" id="gallery-title">Gallery</h2>
+      <div class="gallery">
+        <figure class="fig">
+          <a href="../assets/images/voice-chess-bot/cut-frame-vs-cad-2.jpg">
+            <img src="../assets/images/voice-chess-bot/cut-frame-vs-cad-2.jpg" width="1199" height="1600" loading="lazy" alt="A hand holding two cut cardboard frames in front of a laptop showing the part's 3D model in the FlashPrint slicer.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 4</span> Cut frame parts held up against the part's model in FlashPrint, the 3D-printing slicer, to check the fit.</figcaption>
+        </figure>
+        <figure class="fig">
+          <a href="../assets/images/voice-chess-bot/electronics.jpg">
+            <img class="crop-bars" src="../assets/images/voice-chess-bot/electronics.jpg" width="738" height="1600" loading="lazy" alt="Two yellow DC gear motors wired to a motor driver board and an Arduino Uno, with AA batteries.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 5</span> Control electronics.</figcaption>
+        </figure>
+        <figure class="fig">
+          <a href="../assets/images/voice-chess-bot/team.jpg">
+            <img src="../assets/images/voice-chess-bot/team.jpg" width="1600" height="1200" loading="lazy" alt="Three team members at a table with a motor driver board, a stepper motor and a laser-cut part.">
+          </a>
+          <figcaption><span class="fig__num">Fig. 6</span> The team at the residency.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <nav class="pager" aria-label="Projects">
+      <a class="pager__prev" href="ouija-escape-room.html"><span class="pager__label">Previous</span><span aria-hidden="true">←</span> 06 Interactive Ouija Escape-Room Puzzle</a>
+      <a class="pager__all" href="../index.html#projects">All projects</a>
+      <a class="pager__next" href="chess-set.html"><span class="pager__label">Next</span>08 Military-Themed Chess Set <span aria-hidden="true">→</span></a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <ul class="site-footer__links">
+        <li><a href="mailto:kotwal.t@northeastern.edu">kotwal.t@northeastern.edu</a></li>
+        <li><a href="https://www.linkedin.com/in/tarohnishkotwal">LinkedIn</a></li>
+        <li><a href="../portfolio-print.html">Print-ready portfolio</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+      <p class="site-footer__note">© 2026 Tarohnish Kotwal · Updated November 2026</p>
+    </div>
+  </footer>
+</body>
+</html>
