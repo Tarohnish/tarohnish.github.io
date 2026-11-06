@@ -134,6 +134,70 @@ a {
   height: 2.4in;
 }
 
+/* Status strip: plain text, e.g. "Status as of Nov 2026: 1 Ideation (completed) · …". */
+.status {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #000;
+  border-top: 0;
+  break-inside: avoid;
+}
+
+.status__label {
+  display: inline;
+  padding: 0;
+  border: 0;
+}
+
+.status__label::after { content: ": "; }
+
+.status__key { color: inherit; }
+
+.stages,
+.stage {
+  display: inline;
+  padding: 0;
+}
+
+.stage + .stage::before { content: " · "; }
+
+.stage::after,
+.stage--done .stage__name::before {
+  content: none;
+  display: none;
+}
+
+.stage__num,
+.stage__name,
+.stage__state,
+.tag-status {
+  display: inline;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+.stage--current .stage__num {
+  border: 0;
+  color: inherit;
+  font-weight: inherit;
+}
+
+.stage--done .stage__state,
+.stage--todo .stage__state {
+  position: static;
+  overflow: visible;
+  clip: auto;
+}
+
+.stage__state::before { content: "("; }
+.stage__state::after { content: ")"; }
+
 /* ---------- Never split these across pages ---------- */
 
 figure,

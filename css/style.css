@@ -344,9 +344,12 @@ p, ul, ol, dl, figure { margin: 0; }
 
 .card__strip {
   display: grid;
-  grid-template-columns: 3rem 1fr;
+  grid-template-columns: 3rem 1fr auto;
+  align-items: center;
   border-bottom: 1px solid var(--ink);
 }
+
+.card__strip .tag-status { margin-right: 0.875rem; }
 
 .card__num {
   display: flex;
@@ -530,7 +533,7 @@ p, ul, ol, dl, figure { margin: 0; }
 /* ---------- Project page ---------- */
 
 .back {
-  margin: 1rem 0 0.75rem;
+  margin: 0.75rem 0 0.5rem;
   font-size: 0.9375rem;
 }
 
@@ -618,6 +621,195 @@ p, ul, ol, dl, figure { margin: 0; }
     border-left: 1px solid var(--ink);
   }
   .tb-row:nth-child(n + 3) { grid-column: 1 / -1; }
+}
+
+/* "In progress" tag: the home card and the current stage of the status strip. */
+.tag-status {
+  display: inline-block;
+  padding: 0 0.375rem;
+  border: 1px solid var(--blue);
+  background: var(--paper);
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Status strip for in-progress projects: a revision block attached under the title block.
+   Without color it still reads: ✓ marks done stages, connectors are solid up to the current
+   stage and dashed after it, and the current stage says "In progress" in words. */
+.status {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border: 2px solid var(--ink);
+  border-top: 0;
+}
+
+.status__label {
+  padding: 0.375rem 0.875rem;
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+.status__key {
+  margin-right: 0.375rem;
+  color: var(--graphite);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.stages {
+  --box: 1.125rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.625rem 0;
+  margin: 0;
+  padding: 0.3125rem 0.875rem 0.375rem;
+  list-style: none;
+}
+
+.stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "num  state"
+    "name name";
+  align-items: center;
+  column-gap: 0.375rem;
+  padding-right: 0.625rem;
+}
+
+.stage__num {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  grid-area: num;
+  width: var(--box);
+  height: var(--box);
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  line-height: 1;
+}
+
+.stage__name {
+  grid-area: name;
+  margin-top: 0.1875rem;
+  font-size: 0.75rem;
+  line-height: 1.25;
+}
+
+.stage__state {
+  position: relative;
+  z-index: 1;
+  grid-area: state;
+  justify-self: start;
+}
+
+/* Connector from this stage's box to the next one. */
+.stage::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--box) / 2);
+  left: var(--box);
+  right: 0;
+  border-top: 1px dashed var(--hairline);
+}
+
+.stage--done::after { border-top: 1px solid var(--ink); }
+
+.stage:last-child::after,
+.stage:nth-child(4)::after { display: none; }
+
+.stage--done .stage__name::before {
+  content: "✓ ";
+  content: "✓ " / "";
+}
+
+.stage--current .stage__num {
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.stage--current .stage__name { font-weight: 600; }
+
+.stage--todo .stage__num {
+  border-color: var(--hairline);
+  color: var(--graphite);
+}
+
+.stage--todo .stage__name { color: var(--graphite); }
+
+/* "completed" / "not started" are for screen readers (and print); "In progress" is visible. */
+.stage--done .stage__state,
+.stage--todo .stage__state {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Desktop: one row of eight, label cell on the left like the title block's field labels. */
+@media (min-width: 1100px) {
+  .status { grid-template-columns: 7.5rem minmax(0, 1fr); }
+  .status__label {
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    border-right: 1px solid var(--ink);
+    border-bottom: 0;
+    line-height: 1.4;
+  }
+  .status__key {
+    display: block;
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .stages { grid-template-columns: repeat(8, auto); }
+  .stage:nth-child(4)::after { display: block; }
+}
+
+/* Pages with a status strip: a slightly shorter hero, so the 1280×720 first screen still fits. */
+.status + .project { margin-top: 1rem; }
+
+@media (min-width: 1100px) {
+  .status + .project .fig--hero img { max-height: clamp(15.5rem, calc(100vh - 31.5rem), 40rem); }
+}
+
+/* Phones: one stacked column with a vertical connector. */
+@media (max-width: 559px) {
+  .stages {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+  .stage {
+    grid-template-areas:
+      "num name"
+      "num state";
+    align-items: start;
+  }
+  .stage__name { margin-top: 0.0625rem; }
+  .stage::after,
+  .stage:nth-child(4)::after {
+    display: block;
+    top: var(--box);
+    bottom: -0.5rem;
+    left: calc(var(--box) / 2);
+    right: auto;
+    border-top: 0;
+    border-left: 1px dashed var(--hairline);
+  }
+  .stage--done::after { border-left: 1px solid var(--ink); }
+  .stage:last-child::after { display: none; }
 }
 
 /* Two columns on desktop: text on the left, hero and key figures on the right.
